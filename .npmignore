@@ -1,0 +1,9 @@
+node_modules
+.env
+debug/
+src/
+example/
+.changeset/
+.vscode/
+tsconfig.json
+eslintrc.js
