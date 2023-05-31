@@ -4,8 +4,6 @@
   "description": "Plugin template for NotionCMS",
   "author": "Jacob Milhorn",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "keywords": [
     "notionCMS",
     "CMS",
@@ -13,6 +11,8 @@
     "notion-api",
     "static site generation"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "scripts": {
     "build": "rm -rf dist && tsc --project ./tsconfig.json && rollup -c",
     "ex": "node example/index.mjs",
@@ -24,12 +24,21 @@
     "publish": "changeset publish",
     "test": "NODE_OPTIONS=--enable-source-maps npx c8 uvu test",
     "build:test": "npm run build && npm run test",
-    "commit:push" : "git add . && git commit --amend --no-edit && git push origin +main"
+    "commit:push": "git add . && git commit --amend --no-edit && git push origin +main"
+  },
+  "dependencies": {
+    "@agency-kit/notion-cms": "file:../notion-cms",
+    "@mermaid-js/mermaid-cli": "^10.1.0",
+    "@types/node": "^20.2.5",
+    "lodash.unescape": "^4.0.1",
+    "zx": "^7.2.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
     "@changesets/cli": "^2.26.1",
     "@rollup/plugin-terser": "^0.4.0",
+    "@types/lodash": "^4.14.195",
+    "@types/lodash.unescape": "^4.0.7",
     "c8": "^7.13.0",
     "dotenv": "^16.0.3",
     "esbuild": "^0.17.15",
@@ -46,8 +55,5 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "dependencies": {
-    "@agency-kit/notion-cms": "^0.3.0"
   }
 }

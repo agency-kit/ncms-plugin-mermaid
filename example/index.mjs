@@ -1,16 +1,18 @@
-import NotionCMS from "@agency-kit/notion-cms";
+import NotionCMS from '@agency-kit/notion-cms'
 import dotenv from 'dotenv'
-import ncmsTemplatePlugin from '../dist/index.mjs'
+import ncmsMermaidPlugin from '../dist/index.mjs'
 
 dotenv.config()
 
 const testCMS = new NotionCMS({
-  databaseId: '83544a88-89f4-4748-ab0d-0ffc762cbe4f',
+  databaseId: '9536d9ed-bb88-49ab-9b96-b8948e57c7ac',
   notionAPIKey: process.env.NOTION,
   draftMode: true,
   refreshTimeout: 0,
-  debug: true,
-  plugins: [ncmsTemplatePlugin()]
+  // debug: true,
+  plugins: [ncmsMermaidPlugin()],
 })
 
 await testCMS.fetch()
+
+testCMS.export({ pretty: true, path: `${process.cwd()}/debug/pretty.json` })

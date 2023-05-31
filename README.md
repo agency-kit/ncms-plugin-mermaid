@@ -1,7 +1,12 @@
-Use: `degit agency-kit/notion-cms-plugin-starter`
+# NCMS Plugin Mermaid
 
-CONTRIBUTING
+This plugin runs the mermaid-cli to transform any mermaid diagrams in your Notion CMS pages into pngs.
 
-Use this command `git add . && git commit --amend --no-edit && git push origin +main`
+> Note: the mermaid cli runs a headless browser instance via puppeteer under the hood.
 
-Make sure to update this `package.json` with the correct package name.
+## Options
+
+`imageDirectory`: String
+
+This is used to set the directory the mermaid diagram images will be generated in relative to your `dist` directory.
+Defaults to `.`.
